@@ -1,5 +1,17 @@
 vim.g.mapleader = " "
 
+-- COMPILE AND RUN
+-- java
+function codeRunner()
+  if vim.bo.filetype == "java" then
+    vim.cmd[[!javac % && java %]]
+  else
+    print("scripts not written for this filetype")
+    vim.cmd[[termianl]]
+  end
+end
+vim.keymap.set('n', '<F9>', codeRunner)
+
 -- TELESCOPE / fuzzy finder
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -7,8 +19,12 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- Bufferline 
+vim.keymap.set('n', '<TAB>', ":BufferLineCycleNext<CR>")
+
 -- NVIM TREE / file explorer
 vim.keymap.set('n', '<leader>b', ":NvimTreeToggle<CR>")
+vim.keymap.set('n', '<leader>fe', ":NvimTreeFocus<CR>")
 
 -- NVIM LSPCONFIG / code diagnositcs
 -- Global mappings.

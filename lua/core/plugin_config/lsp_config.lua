@@ -11,6 +11,13 @@ require("mason-lspconfig").setup {
 
 -- Setting up servers after mason-lspconfig
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- lsp
 require("lspconfig").lua_ls.setup {
 	capabilities = capabilities
 }
+
+--typescript
+-- require("lspconfig").tsserver.setup {
+--  capabilities = capabilities
+--}
