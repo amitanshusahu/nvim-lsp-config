@@ -6,18 +6,33 @@ require("mason-lspconfig").setup()
 -- require("lspconfig").rust_analyzer.setup {}
 -- ...
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls" },
+    ensure_installed = { "lua_ls", "tsserver" },
 }
 
 -- Setting up servers after mason-lspconfig
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- lsp
+-- lua setup
 require("lspconfig").lua_ls.setup {
 	capabilities = capabilities
 }
 
---typescript
--- require("lspconfig").tsserver.setup {
---  capabilities = capabilities
---}
+--typescript setup
+require("lspconfig").tsserver.setup {
+  capabilities = capabilities
+}
+
+-- emmet
+require("lspconfig").emmet_ls.setup { 
+    capabilities = capabilities
+}
+
+-- css
+require("lspconfig").cssls.setup{
+    capabilities = capabilities
+}
+
+-- cssmodules
+require("lspconfig").cssmodules_ls.setup {
+    capabilities = capabilities
+}
