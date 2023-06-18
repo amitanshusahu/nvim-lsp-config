@@ -23,17 +23,27 @@ return require('packer').startup(function(use)
 	use "lukas-reineke/indent-blankline.nvim"
 	-- bufferline
 	use "akinsho/bufferline.nvim"
+    -- autopari
+    -- Auto pairs
+	use {
+		"windwp/nvim-autopairs",
+		wants = "nvim-treesitter",
+		module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
+		config = function()
+			require("config.autopairs").setup()
+		end,
+	}
 	-- lsp
-	use{
-		{'neovim/nvim-lspconfig'},
-    {
-      'williamboman/mason.nvim',
-      run = function()
-        pcall(vim.cmd, 'MasonUpdate')
-      end,
-    },
-    {'williamboman/mason-lspconfig.nvim'},
-	}	
+    use{
+        {'neovim/nvim-lspconfig'},
+        {
+            'williamboman/mason.nvim',
+            run = function()
+                pcall(vim.cmd, 'MasonUpdate')
+            end,
+        },
+        {'williamboman/mason-lspconfig.nvim'},
+    }	
   -- autocompletion
   use {
     'hrsh7th/cmp-nvim-lsp',
