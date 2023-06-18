@@ -24,15 +24,10 @@ return require('packer').startup(function(use)
 	-- bufferline
 	use "akinsho/bufferline.nvim"
     -- autopari
-    -- Auto pairs
-	use {
-		"windwp/nvim-autopairs",
-		wants = "nvim-treesitter",
-		module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
-		config = function()
-			require("config.autopairs").setup()
-		end,
-	}
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 	-- lsp
     use{
         {'neovim/nvim-lspconfig'},
