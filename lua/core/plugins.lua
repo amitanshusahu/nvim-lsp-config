@@ -23,12 +23,16 @@ return require('packer').startup(function(use)
 	use "lukas-reineke/indent-blankline.nvim"
 	-- bufferline
 	use "akinsho/bufferline.nvim"
-    -- autopari
+    -- autopairs
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
-	-- lsp
+    -- git integration
+    use "lewis6991/gitsigns.nvim"
+
+
+    -- lsp
     use{
         {'neovim/nvim-lspconfig'},
         {
@@ -39,18 +43,18 @@ return require('packer').startup(function(use)
         },
         {'williamboman/mason-lspconfig.nvim'},
     }	
-  -- autocompletion
-  use {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
-  }
-	-- snippets
-	use{
-  'L3MON4D3/LuaSnip',
-  'saadparwaiz1/cmp_luasnip',
-	}
-  use "rafamadriz/friendly-snippets"
+    -- autocompletion
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/nvim-cmp',
+    }
+    -- snippets
+    use{
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
+    }
+    use "rafamadriz/friendly-snippets"
 end)
