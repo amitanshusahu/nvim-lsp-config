@@ -26,3 +26,5 @@ vim.diagnostic.config({
     underline = true,
     signs = false,
 })
+
+vim.cmd[[hi Normal ctermbg=none guibg=none]]

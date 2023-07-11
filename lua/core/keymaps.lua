@@ -1,14 +1,16 @@
 vim.g.mapleader = " "
 
 -- COMPILE AND RUN
--- java
 function codeRunner()
-  if vim.bo.filetype == "java" then
-    vim.cmd[[!javac % && java %]]
-  else
-    print("scripts not written for this filetype")
-    vim.cmd[[termianl]]
-  end
+    -- java
+    if vim.bo.filetype == "java" then
+        vim.cmd[[!javac % && java %]]
+    elseif vim.bo.filetype == "cpp" then
+        vim.cmd[[!g++ % -o run && ./run]]
+    else
+        print("scripts not written for this filetype")
+        vim.cmd[[termianl]]
+    end
 end
 vim.keymap.set('n', '<F9>', codeRunner)
 
